@@ -180,7 +180,7 @@ img {
   position: relative;
   display: inline-block;
 	font-family: "Bebas Neue";
-  font-size: 280px;
+  font-size: 150px;
   filter: brightness(0.25) saturate(0.75) !important;
 }
 
