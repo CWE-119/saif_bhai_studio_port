@@ -206,4 +206,14 @@ img {
   .letter span {
     font-size: 100px;
   }
+
+  nav a#logo {
+  position: relative;
+  top: -12px;
+	font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+	font-size: 12px;
+  }
+
 }
