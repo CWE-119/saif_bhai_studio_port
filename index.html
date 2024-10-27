@@ -5,27 +5,81 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
-
-		<script type="module" src="./script.js"></script>
-
 		<link rel="stylesheet" href="style.css">
 
 		<title>Scene Steal</title>
 	</head>
 
 	<body>
+		
+		<div class="logo"><a href="#" id="logo">SCENE STEAL</a></div>
+
+		<div class="menu-toggle closed">
+			<div class="menu-toggle-icon">
+				<div class="hamburger">
+					<div class="menu-bar" data-position = "top"></div>
+					<div class="menu-bar" data-position = "bottom"></div>
+					
+				</div>
+			</div>
+			<div class="menu-copy"><p>Menu</p></div>
+		</div>
+
+		<div class="menu">
+			<div class="col col-1">
+				<div class="menu-logo"><a href="#" id="logo">SCENE STEAL</a></div>
+
+				<div class="links">
+					<div class="link"><a href="#">Projects</a></div>
+					<div class="link"><a href="#">Expertise</a></div>
+					<div class="link"><a href="#">Agency</a></div>
+					<div class="link"><a href="#">Contact</a></div>
+				</div>
+
+				<div class="video-wrapper">
+					<video autoplay loop muted>
+						<source src="./assets/video.mp4" type="video/mp4"/>
+					</video>
+				</div>
+			</div>
+			<div class="col col-2">
+				<div class="socials">	
+					<div class="socials">
+						<div class="sub-col">
+							<p>lorem</p>
+							<p>Lorem ipsum dolor sit.</p>
+							<p>Lorem, ipsum.</p>
+							<p>lorem</p>
+							<br>
+							<p>dummy@gmail.com</p>
+							<p>1234567890</p>
+						</div>
+						<div class="sub-col">
+							<p>Instagram</p>
+							<p>LinkedIn</p>
+							<p>Twitter</p>
+							<p>Facebook</p>
+							<br>
+							<p>01 62 31 82 42</p>
+							<p>01 62 31 82 42</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="header">
+					<h1>Scene Steal</h1>
+				</div>
+			</div>
+		</div>
+
 		<div class="container">
-			<nav>
-				<a href="#" id="logo">SCENE STEAL</a>
+			<!-- <nav>
 				<a href="#" id="about"> about </a>
 			</nav>
 			<footer>
 				<a href="#"> contact us </a>
 				<a href="#" id="barcode">hola</a>
-			</footer>
+			</footer> -->
 
 			<div class="bg-overlay"></div>
 
@@ -54,6 +108,13 @@
 				</div>
 			</div>
 		</div>
+
+
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+		
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+		
+		<script type="module" src="./script.js"></script>
 
 	</body>
 
