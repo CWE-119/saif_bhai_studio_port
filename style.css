@@ -10,6 +10,14 @@
   --color-menu-overlay:#a0e806;
   --color-menu-text:#000;
   --color-menu-divider:#000000;
+  --html-body: "";
+  --logo-menu:"";
+  --social-col:"";
+  --header-h1:"";
+  --nav-a-logo:"";
+  --letter-span:"";
+
+
 }
 
 * {
