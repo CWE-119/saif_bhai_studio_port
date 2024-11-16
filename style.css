@@ -23,8 +23,8 @@
 	src: url("./fonts/Dexurita.otf") format("OpenType");
 }
 @font-face {
-	font-family: "GoldBadge";
-	src: url("./fonts/GoldBadge.otf") format("OpenType");
+	font-family: "Dosca";
+	src: url("./fonts/Dosca.otf") format("OpenType");
 }
 @font-face {
 	font-family: "SANGSIE";
@@ -45,7 +45,7 @@
 	--social-col: "";
 	--header-h1: "SANGSIE";
 	--nav-a-logo: "SANGSIE";
-	--letter-span: "Croisan";
+	--letter-span: "Dosca";
 }
 
 * {
@@ -79,7 +79,8 @@ body {
 }
 
 .logo a {
-	color: #000;
+	color: #000000;
+	filter: brightness(0.25) saturate(0.75) !important;
 }
 
 .menu-logo a {
@@ -461,9 +462,9 @@ img {
 .letter span {
 	position: relative;
 	display: inline-block;
-	font-family: "GoldBadge";
+	font-family: var(--letter-span);
 	text-transform: uppercase;
-	font-size: 150px;
+	font-size: 120px;
 	filter: brightness(0.25) saturate(0.75) !important;
 }
 
@@ -488,8 +489,13 @@ img {
 	}
 
 	.header h1 {
-		font-size: 150px;
-		height: 120px;
+		letter-spacing: 5px;
+		font-size: 40px;
+		height: 110px;
+	}
+
+	.header h1 span {
+		padding-bottom: 5px;
 	}
 
 	.slider-nav {
@@ -511,7 +517,7 @@ img {
 	}
 
 	.letter span {
-		font-size: 100px;
+		font-size: 85px;
 	}
 
 	nav a#logo {
@@ -530,15 +536,12 @@ img {
 	}
 
 	.letter {
-		font-size: 1px;
+		font-size: 0.5px;
 	}
 
-	.menu-toggle{
-
+	.menu-toggle {
 		margin-right: 10px;
-
 	}
-
 }
 
 .transition {

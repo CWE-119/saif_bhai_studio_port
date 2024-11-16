@@ -29,8 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		let prevTranslate = 0;
 		let isDragging = false;
 
-		
-
 		document.querySelectorAll("a").forEach((link) => {
 			link.addEventListener("click", (event) => {
 				event.preventDefault();
@@ -308,9 +306,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			slidesContainer.appendChild(slide);
 		}
 
+
+		
 		updateTitle(
 			0,
 			getComputedStyle([bgOverlay, blocks, menuToggleIcon]).backgroundColor
 		);
 	}, 200);
 });
+
+
