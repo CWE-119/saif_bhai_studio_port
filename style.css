@@ -36,7 +36,7 @@
 }
 
 :root {
-	--beginer-color: rgb(174, 107, 250);
+	--beginner-color: rgb(174, 107, 250);
 	--color-menu-overlay: #a0e806;
 	--color-menu-text: #000;
 	--color-menu-divider: #000000;
@@ -80,7 +80,6 @@ body {
 
 .logo a {
 	color: #000000;
-	filter: brightness(0.25) saturate(0.75) !important;
 }
 
 .menu-logo a {
@@ -138,7 +137,7 @@ body {
 	height: 60px;
 	border-radius: 100%;
 	clip-path: circle(10% at 50% 50%);
-	background-color: var(--beginer-color);
+	background-color: var(--beginner-color);
 	transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 	z-index: 12;
 	overflow: hidden;
@@ -356,7 +355,7 @@ nav a#logo {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: var(--beginer-color);
+	background-color: var(--beginner-color);
 	filter: brightness(0.75);
 	opacity: 0.5;
 }
@@ -489,7 +488,7 @@ img {
 	}
 
 	.header h1 {
-		letter-spacing: 5px;
+		letter-spacing: 7px;
 		font-size: 40px;
 		height: 110px;
 	}

@@ -2,32 +2,30 @@ import { titles } from "./data.js";
 
 document.addEventListener("DOMContentLoaded", function () {
 	gsap.registerPlugin(CustomEase);
+	gsap.registerPlugin(Draggable);
 	CustomEase.create(
 		"hop",
 		"M0,0 C0.354,0 0.464,0.133 0.498,0.502 0.532,0.872 0.651,1 1,1"
 	);
+
+	const ease = "power4.inOut";
 	setTimeout(function () {
-		const ease = "power4.inOut";
 		const menuToggle = document.querySelector(".menu-toggle");
 		const blocks = document.querySelectorAll(".block");
 		const menuToggleIcon = document.querySelector(".menu-toggle-icon");
 		const menu = document.querySelector(".menu");
 		const links = document.querySelectorAll(".link");
 		const socialLinks = document.querySelectorAll(".socials p");
+
 		let isAnimating = false;
 
 		const sliderNav = document.querySelector(".slider-nav");
 		const slidesContainer = document.querySelector(".slides");
 		const bgOverlay = document.querySelector(".bg-overlay");
 		const slideTitle = document.querySelector(".slide-title");
+
 		const numberOfItems = 30;
 		let currentIndex = 0;
-
-		// touch events
-		let startX = 0;
-		let currentTranslate = 0;
-		let prevTranslate = 0;
-		let isDragging = false;
 
 		document.querySelectorAll("a").forEach((link) => {
 			link.addEventListener("click", (event) => {
@@ -266,23 +264,11 @@ document.addEventListener("DOMContentLoaded", function () {
 				});
 
 				const newColor = getRandomColor();
-				gsap.to([bgOverlay, blocks, menuToggleIcon], {
+				gsap.to([bgOverlay, menuToggleIcon], {
 					backgroundColor: newColor,
 					duration: 1.5,
 					ease: "hop",
 				});
-
-				// gsap.to(menuToggleIcon, {
-				// 	backgroundColor: newColor,
-				// 	duration: 1.5,
-				// 	ease: "hop",
-				// });
-
-				// gsap.to(blocks, {
-				// 	backgroundColor: newColor,
-				// 	duration: 1.5,
-				// 	ease: "hop",
-				// });
 
 				updateTitle(i, newColor);
 				currentIndex = i;
@@ -306,13 +292,9 @@ document.addEventListener("DOMContentLoaded", function () {
 			slidesContainer.appendChild(slide);
 		}
 
-
-		
 		updateTitle(
 			0,
-			getComputedStyle([bgOverlay, blocks, menuToggleIcon]).backgroundColor
+			getComputedStyle([bgOverlay,menuToggleIcon]).backgroundColor
 		);
 	}, 200);
 });
-
-
