@@ -294,7 +294,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			slidesContainer.appendChild(slide);
 		}
 
-		// Helper Functions
 		function moveToSlide(index) {
 			const translateXValue = -index * 100;
 			gsap.to(slidesContainer, {
@@ -314,52 +313,41 @@ document.addEventListener("DOMContentLoaded", function () {
 			currentIndex = index;
 		}
 
+		const slideWidth = slidesContainer.offsetWidth / numberOfItems;
+
 		Draggable.create(slidesContainer, {
 			type: "x",
-			bounds: slidesContainer.parentElement,
-			edgeResistance: 0.02, // Lower value for higher sensitivity near edges
-			dragResistance: 0.01, // Lower value for more responsive dragging
-			inertia: true, // Enables momentum effect
+			edgeResistance: 0.15,
+			dragResistance: 0.2,
+			zIndexBoost: true,
+			bounds: {
+				minX: -slideWidth * (numberOfItems - 1),
+				maxX: 0,
+			},
 			snap: {
 				x: (value) => {
-					const slideWidth = slidesContainer.offsetWidth / numberOfItems;
-					// const closestIndex = Math.round(value / -slideWidth);
-					// return -closestIndex * slideWidth; // Snaps to the nearest slide
-					return (
-						Math.round(value / -(slideWidth * 0.025)) * (slideWidth * 0.025)
-					);
+					const snapValue = Math.round(value / -slideWidth);
+					return snapValue * -slideWidth;
 				},
 			},
-			zIndexBoost: false,
-			onDrgStart: function () {
-					this.endDrag(); // End drag if it's not the right-clic
+			onPress() {
+				if (isRightClick) {
+					isDragging = true;
+					this.update();
+					gsap.set(slidesContainer, { cursor: "grabbing" });
+				}
 			},
-			
-			onDragEnd: function () {
-				slidesContainer.classList.remove("dragging");
-				const slideWidth = slidesContainer.offsetWidth / numberOfItems;
-				const snappedIndex = Math.round(this.x / -slideWidth);
-
-				// Clamp the index to valid range
-				const clampedIndex = Math.max(
-					0,
-					Math.min(numberOfItems - 1, snappedIndex)
-				);
-
-				// Animate to the snapped slide
-				moveToSlide(clampedIndex);
-
-				// Update navigation items
-				document.querySelectorAll(".nav-item-wrapper").forEach((nav, idx) => {
-					nav.classList.toggle("active", idx === clampedIndex);
-				});
+			onDrag() {
+				if (!isDragging) return;
+				this.update();
+			},
+			onRelease() {
+				if (isRightClick && isDragging) {
+					moveToSlide(Math.round(this.x / -slideWidth));
+					gsap.set(slidesContainer, { cursor: "grab" });
+				}
 				isDragging = false;
 			},
 		});
-
-		updateTitle(
-			0,
-			getComputedStyle([bgOverlay, menuToggleIcon]).backgroundColor
-		);
-	}, 200);
+	});
 });

@@ -61,6 +61,17 @@ body {
 	font-family: "Bebas Neue";
 }
 
+.slidesContainer {
+    cursor: auto; /* Default pointer style */
+}
+
+.slidesContainer.grabbing {
+    cursor: grab; /* When right-click is pressed, change to grab */
+}
+/* #slidesContainer.dragging {
+    cursor: url('path-to-your-custom-cursor.png'), auto;
+} */
+
 .logo,
 .menu-logo {
 	position: absolute;
@@ -83,7 +94,7 @@ body {
 }
 
 .menu-logo a {
-	color: #fff;
+	color: #fff
 }
 
 .menu-toggle {
@@ -97,7 +108,7 @@ body {
 	transition: width 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 	transform-origin: right;
 	cursor: pointer;
-	z-index: 12;
+	z-index: 1000;
 }
 
 .menu-toggle.opened {
